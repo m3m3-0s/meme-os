@@ -1,0 +1,4 @@
+type: script
+scripts:
+  - initramfs.sh
+  - remove-wp.sh
