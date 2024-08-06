@@ -1,5 +1,2 @@
 [org.gnome.desktop.interface]
 color-scheme='prefer-dark'
-
-[org.gnome.shell]
-disabled-extensions=['background-logo@fedoroahosted.org', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.om', 'logomenu@aryan_k"]
