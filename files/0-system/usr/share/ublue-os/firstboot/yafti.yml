@@ -5,7 +5,7 @@ screens:
   first-screen:
     source: yafti.screen.title
     values:
-      title: "Welcome to MemeOS (Alpha)"
+      title: "Welcome to MemeOS 
       icon: "/path/to/icon"
       description: |
         This guided installer will help you get started with your Solana gaming.
@@ -140,4 +140,4 @@ screens:
         - "Join the Discord Community":
             run: /usr/bin/xdg-open https://discord.gg/XjG48C7VHx
       description: |
-        Thanks for trying uBlue, we hope you enjoy it!
+        Thanks for trying MemeOS, we hope you enjoy it!
