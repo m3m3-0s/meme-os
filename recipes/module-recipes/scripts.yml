@@ -1,6 +1,7 @@
 type: script
 snippets:
   - "sudo curl -L https://urbit.org/install/linux-x86_64/latest | sudo tar xzk --transform='s/.*/urbit/g' -C /usr/bin && sudo chmod +x /usr/bin/urbit"
+  - "curl https://sh.rustup.rs -sSf | sh"
 scripts:
   - initramfs.sh
   - remove-wp.sh

@@ -1,2 +1,8 @@
 [org.gnome.desktop.interface]
 color-scheme='prefer-dark'
+
+[org.gnome.login-screen]
+logo='/usr/share/pixmaps/fedora-logo.png'
+
+[org.gnome.shell]
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 'hotedge@jonathan.jdoda.ca', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'just-perfection-desktop@just-perfection']
