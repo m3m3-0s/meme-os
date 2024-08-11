@@ -6,13 +6,13 @@ screens:
     source: yafti.screen.title
     values:
       title: "Welcome to MemeOS 
-      icon: "/path/to/icon"
+      icon: "/user/share/pixmaps/fedora-logo.png"
       description: |
         This guided installer will help you get started with your Solana gaming.
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
     values:
-      title: Welcome, Traveler!
+      title: Welcome, Gamer!
       condition:
         run: flatpak remotes --columns=name | grep fedora
       description: |
@@ -131,7 +131,7 @@ screens:
     source: yafti.screen.title
     values:
       title: "All done!"
-      icon: "/path/to/icon"
+      icon: "/usr/share/pixmaps/fedora-logo.png"
       links:
         - "Install More Applications":
             run: /usr/bin/gnome-software
