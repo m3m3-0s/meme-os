@@ -1,6 +1,6 @@
 [org.gnome.desktop.interface]
 color-scheme='prefer-dark'
-gtk-theme='Orchis-theme'
+gtk-theme='Orchis-Red-Dark'
 
 [org.gnome.login-screen]
 logo='/usr/share/pixmaps/fedora-logo.png'
