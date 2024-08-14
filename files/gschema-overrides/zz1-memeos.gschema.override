@@ -5,5 +5,10 @@ gtk-theme='Orchis-Red-Dark'
 [org.gnome.login-screen]
 logo='/usr/share/pixmaps/fedora-logo.png'
 
+[org.gnome.desktop.background]
+picture-uri='/usr/share/backgrounds/wallpaper.jpg'
+picture-uri-dark='/usr/share/backgrounds/wallpaper.jpg'
+
+
 [org.gnome.shell]
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 'hotedge@jonathan.jdoda.ca', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'just-perfection-desktop@just-perfection']
