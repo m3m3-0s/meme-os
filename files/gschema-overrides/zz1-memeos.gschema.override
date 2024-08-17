@@ -2,12 +2,19 @@
 color-scheme='prefer-dark'
 gtk-theme='Orchis-Red-Dark'
 
+[org.gnome.shell.extensios.user-theme]
+name='Orchis-Red-Dark'
+
 [org.gnome.login-screen]
 logo='/usr/share/pixmaps/fedora-logo.png'
 
+
+[org.gnome.desktop.screensaver]
+picture-uri='file:///usr/share/backgrounds/wallpaper.jpg'
+
 [org.gnome.desktop.background]
-picture-uri='/usr/share/backgrounds/wallpaper.jpg'
-picture-uri-dark='/usr/share/backgrounds/wallpaper.jpg'
+picture-uri='file:///usr/share/backgrounds/wallpaper.jpg'
+picture-uri-dark='file:///usr/share/backgrounds/wallpaper.jpg'
 
 
 [org.gnome.shell]
