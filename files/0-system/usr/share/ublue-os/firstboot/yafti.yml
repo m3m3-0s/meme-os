@@ -6,7 +6,7 @@ screens:
     source: yafti.screen.title
     values:
       title: "Welcome to MemeOS 
-      icon: "/user/share/pixmaps/fedora-logo.png"
+      icon: "file:///user/share/pixmaps/fedora-logo.png"
       description: |
         This guided installer will help you get started with your Solana gaming.
   can-we-modify-your-flatpaks:
@@ -131,13 +131,13 @@ screens:
     source: yafti.screen.title
     values:
       title: "All done!"
-      icon: "/usr/share/pixmaps/fedora-logo.png"
+      icon: "file:///usr/share/pixmaps/fedora-logo.png"
       links:
         - "Install More Applications":
             run: /usr/bin/gnome-software
         - "Website":
-            run: /usr/bin/xdg-open https://ublue.it
+            run: /usr/bin/xdg-open https://os.meme
         - "Join the Discord Community":
-            run: /usr/bin/xdg-open https://discord.gg/XjG48C7VHx
+            run: /usr/bin/xdg-open https://discord.gg/
       description: |
         Thanks for trying MemeOS, we hope you enjoy it!
