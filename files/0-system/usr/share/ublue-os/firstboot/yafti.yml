@@ -107,13 +107,14 @@ screens:
             - MangoHUD (Utility): org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
             - SteamTinkerLaunch (Utility): com.valvesoftware.Steam.Utility.steamtinkerlaunch
             - Proton Updater for Steam: net.davidotek.pupgui2
-        Office:
+        Dev:
           description: Boost your productivity.
           default: false
           packages:
             - LibreOffice: org.libreoffice.LibreOffice
             - OnlyOffice: org.onlyoffice.desktopeditors
             - Obsidian: md.obsidian.Obsidian
+            - VS Code: com.visualstudio.code
             - Slack: com.slack.Slack
             - Standard Notes: org.standardnotes.standardnotes
             - Thunderbird Email: org.mozilla.Thunderbird
@@ -139,5 +140,14 @@ screens:
             run: /usr/bin/xdg-open https://os.meme
         - "Join the Discord Community":
             run: /usr/bin/xdg-open https://discord.gg/
+        - "Install Rust":
+            run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        - "Install Zig":
+            run: sudo dnf install zig -y
+        - "Install Anchor":
+            run: |
+              sudo apt-get install -y libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang make
+              cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+              avm use latest
       description: |
         Thanks for trying MemeOS, we hope you enjoy it!
