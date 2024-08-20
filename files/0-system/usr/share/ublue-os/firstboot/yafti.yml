@@ -5,7 +5,7 @@ screens:
   first-screen:
     source: yafti.screen.title
     values:
-      title: "Welcome to MemeOS 
+      title: "Welcome to MemeOS"
       icon: "file:///user/share/pixmaps/fedora-logo.png"
       description: |
         This guided installer will help you get started with your Solana gaming.
