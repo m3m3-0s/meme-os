@@ -139,11 +139,9 @@ screens:
         - "Website":
             run: /usr/bin/xdg-open https://os.meme
         - "Join the Discord Community":
-            run: /usr/bin/xdg-open https://discord.gg/
+            run: /usr/bin/xdg-open https://discord.gg
         - "Install Rust":
             run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        - "Install Zig":
-            run: sudo dnf install zig -y
         - "Install Anchor":
             run: |
               sudo apt-get install -y libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang make
