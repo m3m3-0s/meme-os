@@ -7,4 +7,4 @@ NEW_DISTRIBUTOR="Meme-OS"
 echo "$NEW_DISTRIBUTOR release" > /etc/system-release
 
 # Re-generate GRUB configuration
-grub2-mkconfig -o /boot/grub2/grub.cfg
+#grub2-mkconfig -o /boot/grub2/grub.cfg
