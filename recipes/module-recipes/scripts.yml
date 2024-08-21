@@ -4,7 +4,7 @@ snippets:
   - "mkdir -p /tmp/orchis-theme/ && cd /tmp/orchis-theme/ && git clone --depth=1 https://github.com/vinceliuice/Orchis-theme.git && cd Orchis-theme && ./install.sh -t red --tweaks dock -d /usr/share/themes/"
 scripts:
   #- change-hostname.sh
-  #- customize-grub.sh
+  - customize-grub.sh
   - update-os-release.sh
   #- image-name.sh
   - initramfs.sh

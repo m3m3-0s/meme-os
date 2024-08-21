@@ -1,6 +1,10 @@
 #!/bin/bash
-# Update GRUB_DISTRIBUTOR in /etc/default/grub
-sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Meme-OS"/' /etc/default/grub
+
+# Define the new distribution name
+NEW_DISTRIBUTOR="Meme-OS"
+
+# Update /etc/system-release to reflect the new distributor name
+echo "$NEW_DISTRIBUTOR release" > /etc/system-release
 
 # Re-generate GRUB configuration
 grub2-mkconfig -o /boot/grub2/grub.cfg
