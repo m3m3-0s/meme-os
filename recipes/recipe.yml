@@ -12,7 +12,7 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
 
   - from-file: module-recipes/files.yml
-  - from-file: module-recipes/gschema-overrides.yml
+  #- from-file: module-recipes/gschema-overrides.yml
   - from-file: module-recipes/rpm-ostree.yml
   - from-file: module-recipes/default-flatpaks.yml
   - from-file: module-recipes/scripts.yml
