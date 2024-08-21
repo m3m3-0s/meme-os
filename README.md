@@ -2,7 +2,7 @@
 
 See the [MemeOS Website](https://os.meme) for quick setup instructions for spinning up the image on you handheld.
 
-After setup, you can join our community if you got any questions.
+After setup, you can join our discord community if you got any questions.
 
 ## Installation
 
@@ -27,5 +27,3 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
-
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
