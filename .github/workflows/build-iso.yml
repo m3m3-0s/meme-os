@@ -79,7 +79,7 @@ jobs:
       # Step 6: Create a GitHub Release
       - name: Create Release
         id: create_release
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const release = await github.rest.repos.createRelease({
