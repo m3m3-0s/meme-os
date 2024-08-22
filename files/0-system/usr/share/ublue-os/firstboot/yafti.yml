@@ -9,6 +9,7 @@ screens:
       icon: "file:///user/share/pixmaps/fedora-logo.png"
       description: |
         This guided installer will help you get started with your Solana gaming.
+
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
     values:
@@ -23,6 +24,7 @@ screens:
         - run: flatpak remove --system --noninteractive --all
         - run: flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
         - run: flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+
   check-system-flathub:
     source: yafti.screen.consent
     values:
@@ -33,6 +35,7 @@ screens:
         We have detected that you don't have Flathub's repository on your system. We will now add that repository to your system-wide list.
       actions:
         - run: flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+
   check-user-flathub:
     source: yafti.screen.consent
     values:
@@ -43,6 +46,7 @@ screens:
         We have detected that you don't have Flathub's repository on your current user account. We will now add that repository to your account.
       actions:
         - run: flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+
   applications:
     source: yafti.screen.package
     values:
@@ -90,6 +94,7 @@ screens:
           description: Additional browsers to complement or replace Firefox.
           default: false
           packages:
+            - Mozilla Firefox: org.mozilla.firefox
             - Brave: com.brave.Browser
             - GNOME Web: org.gnome.Epiphany
             - Google Chrome: com.google.Chrome
@@ -107,7 +112,7 @@ screens:
             - MangoHUD (Utility): org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
             - SteamTinkerLaunch (Utility): com.valvesoftware.Steam.Utility.steamtinkerlaunch
             - Proton Updater for Steam: net.davidotek.pupgui2
-        Dev:
+        Utilities:
           description: Boost your productivity.
           default: false
           packages:
@@ -128,6 +133,41 @@ screens:
             - Gstreamer VAAPI for OBS: com.obsproject.Studio.Plugin.GStreamerVaapi
             - Boatswain for Streamdeck: com.feaneron.Boatswain
 
+  install-dev-tools:
+    source: yafti.screen.package
+    values:
+      title: Developer Tools
+      show_terminal: true
+      package_manager: yafti.plugin.custom
+      package_manager_defaults:
+        user: false
+        system: true
+      groups:
+        Programming Languages:
+          description: Choose programas to install.
+          default: false
+          packages:
+            - Rust: |
+                brew install rust
+            - Zig: |
+                brew install zig
+            - Go: |
+                brew install go
+            - Node.js: |
+                brew install node
+            - Python: |
+                brew install python
+        Tools:
+          description: Developer tools and utilities.
+          default: false
+          packages:
+            - Git: |
+                brew install git
+            - Docker: |
+                brew install docker
+            - Neovim: |
+                brew install neovim
+
   final-screen:
     source: yafti.screen.title
     values:
@@ -140,12 +180,5 @@ screens:
             run: /usr/bin/xdg-open https://os.meme
         - "Join the Discord Community":
             run: /usr/bin/xdg-open https://discord.gg
-        - "Install Rust":
-            run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        - "Install Anchor":
-            run: |
-              sudo apt-get install -y libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang make
-              cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
-              avm use latest
       description: |
         Thanks for trying MemeOS, we hope you enjoy it!
