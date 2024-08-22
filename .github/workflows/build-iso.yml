@@ -1,25 +1,72 @@
-# Build the ISO
-- name: Build ISO
-  uses: jasonn3/build-container-installer@main
-  id: build
-  with:
-    arch: x86_64
-    image_name: Meme-OS
-    image_repo: ghcr.io/m3m3-0s/meme-os
-    image_tag: latest
-    version: v1
-    variant: Kinoite
-    iso_name: Meme-OS-latest-v1.iso
+name: Build ISO
 
-# Upload the ISO as an artifact
-- name: Upload ISO as artifact
-  id: upload
-  uses: actions/upload-artifact@v4
-  with:
-    name: ${{ steps.build.outputs.iso_name }}
-    path: |
-      ${{ steps.build.outputs.iso_path }}
-      ${{ steps.build.outputs.iso_path }}-CHECKSUM
-    if-no-files-found: error
-    retention-days: 0
-    compression-level: 0
+on:
+  schedule:
+    - cron: "0 0 * * *" # Build & upload ISO every day at utc time
+  workflow_dispatch:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/build_iso.yml'
+
+env:
+  IMAGE_REGISTRY: ghcr.io/m3m3-0s
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        image_name: [meme-os]
+        major_version: [40]
+        image_tag: [latest]
+
+    steps:
+      - name: Fetch current date
+        shell: bash
+        run: |
+          TIMESTAMP="$(date +%d-%m-%Y)"
+          echo "TIMESTAMP=${TIMESTAMP}" >> $GITHUB_ENV
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Build ISO
+        uses: jasonn3/build-container-installer@main
+        id: build
+        with:
+          arch: x86_64
+          version: 40
+          image_repo: ghcr.io/m3m3-0s
+          image_name: meme-os
+          image_tag: latest
+          variant: Kinoite
+          iso_name: meme-os-40-${{ env.TIMESTAMP }}.iso
+
+      - name: Move ISO to Upload Directory
+        id: upload-directory
+        shell: bash
+        run: |
+          ISO_UPLOAD_DIR=${{ github.workspace }}/upload
+          mkdir -p ${ISO_UPLOAD_DIR}
+          mv ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }} ${ISO_UPLOAD_DIR}
+          mv ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}-CHECKSUM ${ISO_UPLOAD_DIR}
+          echo "iso-upload-dir=${ISO_UPLOAD_DIR}" >> $GITHUB_OUTPUT     
+
+      - name: Upload ISO as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: meme-os-40-${{ env.TIMESTAMP }}.iso
+          path: ${{ steps.upload-directory.outputs.iso-upload-dir }}
+          if-no-files-found: error
+          retention-days: 30 # Adjust as needed
+          compression-level: 0
