@@ -3,8 +3,7 @@ repos:
   # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
 install:
   - zig
-  #- warp
+  - rust
 remove:
   - waydroid-selinux
   - waydroid
-  - lutris
