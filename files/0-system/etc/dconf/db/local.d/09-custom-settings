@@ -6,7 +6,7 @@ gtk-theme='Orchis-Red-Dark'
 name='Orchis-Red-Dark'
 
 [org/gnome/login-screen]
-logo='/usr/share/pixmaps/fedora-logo.png'
+logo='file:///usr/share/pixmaps/fedora-logo.png'
 
 [org/gnome/desktop/screensaver]
 picture-uri='file:///usr/share/backgrounds/wallpaper.jpg'

@@ -2,7 +2,7 @@ type: script
 snippets:
   - "curl -L https://urbit.org/install/linux-x86_64/latest | tar xzk --transform='s/.*/urbit/g' -C /usr/bin && chmod +x /usr/bin/urbit"
   - "mkdir -p /tmp/orchis-theme/ && cd /tmp/orchis-theme/ && git clone --depth=1 https://github.com/vinceliuice/Orchis-theme.git && cd Orchis-theme && ./install.sh -t red --tweaks dock -d /usr/share/themes/"
-  - "mkdir -p /var/www/pterodactyl/ && git clone https://github.com/pyrohost/pyrodactyl.git /var/www/pterodactyl && cd /var/www/pterodactyl && npm install && npm run ship"
+  #- "mkdir -p /var/www/pterodactyl/ && git clone https://github.com/pyrohost/pyrodactyl.git /var/www/pterodactyl && cd /var/www/pterodactyl && npm install && npm run ship"
 scripts:
   #- change-hostname.sh
   - customize-grub.sh
