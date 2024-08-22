@@ -85,12 +85,12 @@ jobs:
             const release = await github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: `v${{ steps.build.outputs.version }}`,
-              name: `Release v${{ steps.build.outputs.version }}`,
+              tag_name: `v${{ matrix.major_version }}-${{ env.TIMESTAMP }}`,
+              name: `Release v${{ matrix.major_version }}-${{ env.TIMESTAMP }}`,
               draft: false,
               prerelease: false,
             });
-            return release.data;
+            core.setOutput("upload_url", release.data.upload_url);
 
       # Step 7: Upload ISO to the Release
       - name: Upload ISO to Release
